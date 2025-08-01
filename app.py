@@ -32,4 +32,13 @@ def submit():
 @app.route("/download")
 def download():
     return send_file(EXCEL_FILE, as_attachment=True)
+    
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('feedback-form/css', path)
+
+@app.route('/assets/<path:path>')
+def send_assets(path):
+    return send_from_directory('feedback-form/assets', path)
+
 
