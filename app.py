@@ -26,7 +26,11 @@ def submit():
     df = pd.concat([df, pd.DataFrame([flat_data])], ignore_index=True)
     df.to_excel(EXCEL_FILE, index=False)
 
-    return redirect("/")
+    return redirect("/thank-you")
+
+@app.route("/thank-you")
+def thank_you():
+    return render_template("thank_you.html")
 
 @app.route("/download")
 def download():
